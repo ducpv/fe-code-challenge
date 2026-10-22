@@ -1,3 +1,9 @@
 node_modules/
 dist/
 *.log
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+src/problem4/public/app.js
+src/problem4/public/app.js.map

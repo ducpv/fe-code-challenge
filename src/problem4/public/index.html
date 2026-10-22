@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resources</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <p class="eyebrow">Crude server</p>
+        <h1>Resources</h1>
+      </div>
+    </header>
+    <main class="wrap">
+      <p id="status" class="status" role="status" hidden></p>
+
+      <section class="panel" aria-labelledby="create-heading">
+        <h2 id="create-heading">Create a resource</h2>
+        <form id="create-form" class="form">
+          <label>
+            Name
+            <input id="create-name" name="name" type="text" maxlength="200" required />
+          </label>
+          <label>
+            Description
+            <textarea id="create-description" name="description" maxlength="2000" rows="3"></textarea>
+          </label>
+          <div class="actions">
+            <button type="submit">Create resource</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="workspace">
+        <section class="panel" aria-labelledby="list-heading">
+          <h2 id="list-heading">List resources</h2>
+          <form id="filter-form" class="form filters">
+            <label>
+              Name contains
+              <input id="filter-name" name="name" type="search" />
+            </label>
+            <label>
+              Search
+              <input id="filter-q" name="q" type="search" placeholder="Name or description" />
+            </label>
+            <div class="actions">
+              <button type="submit">Apply filters</button>
+              <button id="clear-filters" type="button">Clear</button>
+            </div>
+          </form>
+          <p id="result-count" class="meta"></p>
+          <p id="empty-message" class="empty">Loading resources…</p>
+          <ul id="resource-list" class="resource-list"></ul>
+          <div class="pager">
+            <button id="prev-page" type="button">Previous</button>
+            <span id="page-label" class="meta"></span>
+            <button id="next-page" type="button">Next</button>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="detail-heading">
+          <h2 id="detail-heading">Resource details</h2>
+          <p id="detail-placeholder">Select a resource to load its details.</p>
+          <form id="detail-form" class="form" hidden>
+            <dl class="meta-list">
+              <div>
+                <dt>Id</dt>
+                <dd id="detail-id"></dd>
+              </div>
+              <div>
+                <dt>Created</dt>
+                <dd id="detail-created"></dd>
+              </div>
+              <div>
+                <dt>Updated</dt>
+                <dd id="detail-updated"></dd>
+              </div>
+            </dl>
+            <label>
+              Name
+              <input id="detail-name" name="name" type="text" maxlength="200" required />
+            </label>
+            <label>
+              Description
+              <textarea id="detail-description" name="description" maxlength="2000" rows="4"></textarea>
+            </label>
+            <div class="actions">
+              <button type="submit">Save details</button>
+              <button id="delete-button" class="danger" type="button">Delete resource</button>
+            </div>
+            <div id="delete-confirm" class="confirm" hidden>
+              <p>Delete this resource permanently?</p>
+              <div class="actions">
+                <button id="confirm-delete" class="danger" type="button">Confirm delete</button>
+                <button id="cancel-delete" type="button">Keep resource</button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
